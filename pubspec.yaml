@@ -1,6 +1,6 @@
 name: flutter_push_notification_app
 description: "A new Flutter project."
-publish_to: 'none' 
+publish_to: 'none'
 
 version: 1.0.0+1
 
@@ -8,32 +8,28 @@ environment:
   sdk: ^3.10.3
 
 dependencies:
-  flutter:
-    sdk: flutter
-
   cupertino_icons: ^1.0.8
   firebase_core: ^4.4.0
   firebase_messaging: ^16.1.1
+  flutter:
+    sdk: flutter
+  flutter_local_notifications: ^20.0.0
 
 dev_dependencies:
-  flutter_test:
-    sdk: flutter
 
   flutter_lints: ^6.0.0
+  flutter_test:
+    sdk: flutter
 
 flutter:
 
   uses-material-design: true
-
   # assets:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
-
-  
   # fonts:
   #   - family: Schyler
   #     fonts:
   #       - asset: fonts/Schyler-Regular.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
-
