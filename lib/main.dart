@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_push_notification_app/firebase_options.dart';
+import 'package:flutter_push_notification_app/home_screen.dart';
 import 'package:flutter_push_notification_app/services/local_notification_service.dart';
 import 'package:flutter_push_notification_app/services/push_notification_service.dart';
 
@@ -19,10 +20,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(title: const Text("Push Notification App")),
-      ),
-    );
+    return MaterialApp(debugShowCheckedModeBanner: false, home: HomeScreen());
   }
 }

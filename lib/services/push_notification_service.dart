@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:developer';
 
 import 'package:firebase_core/firebase_core.dart';
@@ -6,20 +7,25 @@ import 'package:flutter_push_notification_app/services/local_notification_servic
 
 class PushNotificationService {
   static FirebaseMessaging messaging = FirebaseMessaging.instance;
+  static final StreamController<String> _tokenStreamController =
+      StreamController<String>.broadcast();
 
   static Future init() async {
     await messaging.requestPermission();
 
     final String? token = await messaging.getToken();
     log('Token: $token');
+    if (token != null) {
+      _tokenStreamController.add(token);
+    }
 
     FirebaseMessaging.onBackgroundMessage(handelBackgroundMessage);
 
     //! Foreground Message
     handelForegroundMessage();
-    messaging.subscribeToTopic("all").then((val) {
-      log("Subscribed to Topic: all");
-    });
+    // messaging.subscribeToTopic("all").then((val) {
+    //   log("Subscribed to Topic: all");
+    // });
     // messaging.unsubscribeFromTopic("all").then((val) {
     //   log("Unsubscribed from Topic: all");
     // });
@@ -39,4 +45,6 @@ class PushNotificationService {
   }
 
   static void sendTokenServer(String token) {}
+
+  static Stream<String> get tokenStream => _tokenStreamController.stream;
 }
