@@ -17,6 +17,12 @@ class PushNotificationService {
 
     //! Foreground Message
     handelForegroundMessage();
+    messaging.subscribeToTopic("all").then((val) {
+      log("Subscribed to Topic: all");
+    });
+    // messaging.unsubscribeFromTopic("all").then((val) {
+    //   log("Unsubscribed from Topic: all");
+    // });
   }
 
   static Future<void> handelBackgroundMessage(RemoteMessage message) async {
