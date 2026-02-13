@@ -31,4 +31,6 @@ class PushNotificationService {
       log("Foreground Message Listener Registered");
     });
   }
+
+  static void sendTokenServer(String token) {}
 }
